@@ -1290,27 +1290,6 @@ class Board:
             3 = Wheat   (Field)
             4 = Ore     (Mountain)
         
-        This now perfectly matches your constants.py (TERRAIN_TO_RESOURCE).
-        """
-        # Terrain name → Markov resource index (0-4)
-        terrain_to_idx = {
-            "Hill":     0,   # Brick
-            "Forest":   1,   # Wood
-            "Pasture":  2,   # Wool
-            "Field":    3,   # Wheat
-            "Mountain": 4    # Ore
-        }
-
-    def get_vertex_to_rolls(self) -> dict[int, list[list[int]]]:
-        """Maps each intersection ID to the dice numbers that produce each resource.
-        
-        Resource order used by MarkovEvaluator (must match internal matrix):
-            0 = Brick   (Hill)
-            1 = Wood    (Forest)
-            2 = Wool    (Pasture)
-            3 = Wheat   (Field)
-            4 = Ore     (Mountain)
-        
         Uses your exact constants.py terrain names. Works with both three_tile_ids and legs.
         """
         terrain_to_idx = {

@@ -109,27 +109,6 @@ class InitialPlacementStrategies:
         raise ValueError(f"algorithm_id {algorithm_id} not supported")
 
     @staticmethod
-    def _max_pips(board: Board, valid_intersections: List[int]) -> int:
-        best_inter = -1
-        best_score = -1.0
-
-        for inter_id in valid_intersections:
-            if inter_id < 0 or inter_id >= len(board.intersections):
-                continue
-            inter = board.intersections[inter_id]
-            if inter is None:
-                continue
-
-            probs = InitialPlacementStrategies._intersection_resource_pips(inter)
-            score = sum(probs)
-
-            if score > best_score or (score == best_score and (best_inter == -1 or inter_id < best_inter)):
-                best_score = score
-                best_inter = inter_id
-
-        return best_inter if best_inter != -1 else (valid_intersections[0] if valid_intersections else -1)
-
-    @staticmethod
     def _pips_from_roll_value(value: Any) -> float:
         """Convert a Catan dice value to pips/probability weight."""
         roll = InitialPlacementStrategies._safe_int(value)
