@@ -2,7 +2,6 @@
 .mypy_cache/
 
 # Game data folders - completely ignore everything inside
-docs/
 playboards/
 saved_games/
 
